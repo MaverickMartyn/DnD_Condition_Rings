@@ -1,0 +1,23 @@
+{
+    "parameterSets": {
+        "design default values": {
+            "Container_height": "25",
+            "Container_spacing": "0.2",
+            "Container_thickness": "2",
+            "Container_threaded_rod_height": "10",
+            "Diameter": "25",
+            "Direction": "1",
+            "Font_family": "Liberation Sans",
+            "Font_size": "5",
+            "Font_style": "Bold",
+            "Hexagonal_container": "true",
+            "Letter_separation": "17",
+            "Ring_texts": "[[\"BLINDED\", 1], [\"CHARMED\", 1], [\"DEAFENED\", 1], [\"FRIGHTENED\", 1], [\"GRAPPLED\", 1], [\"INCAPACITATED\", 1], [\"INVISIBLE\", 1], [\"PARALYZED\", 1], [\"PETRIFIED\", 1], [\"POISONED\", 1], [\"PRONE\", 1], [\"RESTRAINED\", 1], [\"STUNNED\", 1], [\"UNCONSCIOUS\", 1], [\"EXHAUSTION\", 1], [\"0\", 3], [\"1\", 3], [\"2\", 3], [\"3\", 3], [\"4\", 3], [\"5\", 3], [\"6\", 3], [\"7\", 3], [\"8\", 3], [\"9\", 3], [\"HUNTERS MARK\", 1], [\"BANE\", 1], [\"BANISHED\", 1], [\"BLESSED\", 1], [\"CONCENTRATION\", 1], [\"CURSED\", 1], [\"EXHAUSTED\", 1], [\"FAERIE FIRE\", 1], [\"HEX\", 1], [\"RAGING\", 1], [\"BARDIC INSPIRATION\", 1]]",
+            "Spacing": "10",
+            "Text_ring_spacing": "-0.4",
+            "Text_step_height": "1",
+            "Thickness": "2"
+        }
+    },
+    "fileFormatVersion": "1"
+}
