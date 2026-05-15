@@ -53,7 +53,7 @@ These rings are used to track various conditions affecting characters during D&D
 ![D&D Condition Rings](Examples/DnD_Condition_Rings_Hex_Container.png)
 
 ### Case-style Container
-![D&D Condition Rings](Examples/DnD_Condition_Rings_Cylindrical_Container.png)
+![D&D Condition Rings](Examples/DnD_Condition_Rings_Case_Style_Container.png)
 
 ## License
 
