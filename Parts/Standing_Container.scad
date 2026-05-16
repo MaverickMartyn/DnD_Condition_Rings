@@ -12,29 +12,29 @@ module create_standing_container(radius, thickness, inner_container_radius, font
   // Base Container
   union() {
     difference() {
-      translate([0, -(outer_container_radius * 2), 0])
+      translate([0, 0, 0])
         cylinder(h = outer_base_container_height, r = outer_container_radius, $fn = (Hexagonal_container ? 6 : 100));
-      translate([0, -(outer_container_radius * 2), container_thickness])
+      translate([0, 0, container_thickness])
         cylinder(h = inner_container_height + 0.1, r = inner_container_radius, $fn = 100);
     }
-    translate([0, -(outer_container_radius * 2), (container_thickness - 0.1)])
+    translate([0, 0, (container_thickness - 0.1)])
       cylinder(h = inner_container_height + 0.1, r = inner_pole_radius, $fn = 100);
-    translate([0, -(outer_container_radius * 2), outer_base_container_height - 0.1])
+    translate([0, 0, outer_base_container_height - 0.1])
       threaded_rod(d=screw_diameter, height=container_threaded_rod_height + 0.1, pitch=2, anchor=BOTTOM, $fa=1, $fs=1);
   }
 
   // Lid
   union() {
     difference() {
-      translate([(outer_container_radius * 2) + spacing, -(outer_container_radius * 2), 0])
+      translate([(outer_container_radius * 2) + spacing, 0, 0])
         cylinder(h = outer_lid_height, r = outer_container_radius, $fn = (Hexagonal_container ? 6 : 100));
-      translate([(outer_container_radius * 2) + spacing, -(outer_container_radius * 2), container_thickness])
+      translate([(outer_container_radius * 2) + spacing, 0, container_thickness])
         cylinder(h = outer_lid_height - (container_thickness - 0.1), r = inner_container_radius, $fn = 100);
     }
     difference() {
-      translate([(outer_container_radius * 2) + spacing, -(outer_container_radius * 2), container_thickness - 0.1])
+      translate([(outer_container_radius * 2) + spacing, 0, container_thickness - 0.1])
         cylinder(h = outer_lid_height - container_thickness + 0.1, r = inner_pole_radius, $fn = 100);
-      translate([(outer_container_radius * 2) + spacing, -(outer_container_radius * 2), container_thickness])
+      translate([(outer_container_radius * 2) + spacing, 0, container_thickness])
         threaded_rod(d=screw_diameter, height=container_threaded_rod_height + 0.1, pitch=2, anchor=BOTTOM, $fa=1, $fs=1, internal = true);
     }
   }
