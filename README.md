@@ -23,7 +23,7 @@ These rings are used to track various conditions affecting characters during D&D
 - Ring texts
 - Ring size and thickness adjustment
 - Font and text size
-- Optional backplate for the text (coming soon)
+- Optional backplate for the text
 - Configurable tolerances and connection sizes
 - Adjustable wall thickness for durability
 
