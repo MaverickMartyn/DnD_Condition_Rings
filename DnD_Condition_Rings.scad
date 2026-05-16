@@ -85,19 +85,18 @@ Alignment_hole_depth = 3;
 // The tolerance for the alignment holes to ensure a snug fit with the alignment pins
 Alignment_hole_tolerance = 0.05;
 
-include <Parts/Condition_Rings.scad>
-create_ring_grid(ring_texts = Ring_texts, diameter = Diameter, font_family = Font_family, font_style = Font_style, spacing = Spacing, thickness = Thickness, text_step_height = Text_step_height, letter_separation = Letter_separation, text_ring_spacing = Text_ring_spacing, direction = Direction);
-
 radius = Diameter / 2;
-columns = floor(sqrt(len(Ring_texts)));
-rows = ceil(len(Ring_texts) / columns);
 
-inner_container_radius = radius + Thickness + Font_size + Container_spacing;
+include <Parts/Condition_Rings.scad>
+create_ring_grid(ring_texts = Ring_texts, radius = radius, font_family = Font_family, font_style = Font_style, spacing = Spacing, thickness = Thickness, text_step_height = Text_step_height, letter_separation = Letter_separation, text_ring_spacing = Text_ring_spacing, direction = Direction);
 
 // Standing Container
 include <Parts/Standing_Container.scad>
+inner_container_radius = radius + Thickness + Font_size + Container_spacing;
 create_standing_container(radius = radius, thickness = Thickness, inner_container_radius = inner_container_radius, font_size = Font_size, text_step_height = Text_step_height, container_spacing = Container_spacing, container_thickness = Container_thickness, container_height = Container_height, container_threaded_rod_height = Container_threaded_rod_height, spacing = Spacing, hexagonal_container = Hexagonal_container);
 
 // Case-style container (with sorted slots for each type of ring)
 include <Parts/Case.scad>
-create_case_container(container_thickness = Container_thickness, thickness = Thickness, text_step_height = Text_step_height, case_style_container_height = Case_style_container_height, ring_texts = Ring_texts, magnet_thickness = Magnet_thickness, magnet_radius = Magnet_radius, magnet_hole_tolerance = Magnet_hole_tolerance, alignment_hole_radius = Alignment_hole_radius, alignment_hole_tolerance = Alignment_hole_tolerance);
+columns = floor(sqrt(len(Ring_texts)));
+rows = ceil(len(Ring_texts) / columns);
+create_case_container(rows = rows, columns = columns, container_thickness = Container_thickness, thickness = Thickness, text_step_height = Text_step_height, case_style_container_height = Case_style_container_height, ring_texts = Ring_texts, magnet_thickness = Magnet_thickness, magnet_radius = Magnet_radius, magnet_hole_tolerance = Magnet_hole_tolerance, alignment_hole_radius = Alignment_hole_radius, alignment_hole_tolerance = Alignment_hole_tolerance);

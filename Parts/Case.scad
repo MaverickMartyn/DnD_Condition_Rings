@@ -1,5 +1,5 @@
 // Case-style container (with sorted slots for each type of ring)
-module create_case_container(container_thickness, thickness, text_step_height, case_style_container_height, ring_texts, magnet_thickness, magnet_radius, magnet_hole_tolerance, alignment_hole_radius, alignment_hole_tolerance) {
+module create_case_container(rows, columns, container_thickness, thickness, text_step_height, case_style_container_height, ring_texts, magnet_thickness, magnet_radius, magnet_hole_tolerance, alignment_hole_radius, alignment_hole_tolerance) {
   case_width_single = (inner_container_radius * 2) + container_thickness;
   case_depth_single = (inner_container_radius * 2) + container_thickness;
   case_width = (case_width_single * columns) + container_thickness;
