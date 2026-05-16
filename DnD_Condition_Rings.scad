@@ -75,11 +75,15 @@ Case_style_container_height = 10;
 Magnet_radius = 4.5;
 // The thickness of the magnets for the lid and base of the container
 Magnet_thickness = 3;
+// The tolerance for the magnet holes to ensure a snug fit with the magnets
+Magnet_hole_tolerance = 0.05;
 
 // Radius of the holes for the alignment pins for the lid and base of the container
 Alignment_hole_radius = 4.5;
 // The depth of the holes for the alignment pins for the lid and base of the container
 Alignment_hole_depth = 3;
+// The tolerance for the alignment holes to ensure a snug fit with the alignment pins
+Alignment_hole_tolerance = 0.05;
 
 radius = Diameter / 2;
 columns = floor(sqrt(len(Ring_texts)));
@@ -181,32 +185,32 @@ translate([-(case_width + case_width_single), 10, 0])
     union() {
       // Bottom left
       translate([hole_distance_from_edge, hole_distance_from_edge, case_height - Container_thickness])
-        cylinder(h = Container_thickness + 0.1, r = Magnet_radius - 0.05, $fn = 100);
+        cylinder(h = Container_thickness + 0.1, r = Magnet_radius - Magnet_hole_tolerance, $fn = 100);
       // Bottom right
       translate([case_width - hole_distance_from_edge, hole_distance_from_edge, case_height - Container_thickness])
-        cylinder(h = Container_thickness + 0.1, r = Magnet_radius - 0.05, $fn = 100);
+        cylinder(h = Container_thickness + 0.1, r = Magnet_radius - Magnet_hole_tolerance, $fn = 100);
       // Top right
       translate([case_width - hole_distance_from_edge, case_depth - hole_distance_from_edge, case_height - Container_thickness])
-        cylinder(h = Container_thickness + 0.1, r = Magnet_radius - 0.05, $fn = 100);
+        cylinder(h = Container_thickness + 0.1, r = Magnet_radius - Magnet_hole_tolerance, $fn = 100);
       // Top left
       translate([hole_distance_from_edge, case_depth - hole_distance_from_edge, case_height - Container_thickness])
-        cylinder(h = Container_thickness + 0.1, r = Magnet_radius - 0.05, $fn = 100);
+        cylinder(h = Container_thickness + 0.1, r = Magnet_radius - Magnet_hole_tolerance, $fn = 100);
     }
 
     // Alignment holes
     union() {
       // Bottom left
       translate([alignment_hole_distance_from_edge, alignment_hole_distance_from_edge, case_height - Container_thickness])
-        cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - 0.05, $fn = 100);
+        cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius + Alignment_hole_tolerance, $fn = 100);
       // Bottom right
       translate([case_width - alignment_hole_distance_from_edge, alignment_hole_distance_from_edge, case_height - Container_thickness])
-        cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - 0.05, $fn = 100);
+        cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius + Alignment_hole_tolerance, $fn = 100);
       // Top right
       translate([case_width - alignment_hole_distance_from_edge, case_depth - alignment_hole_distance_from_edge, case_height - Container_thickness])
-        cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - 0.05, $fn = 100);
+        cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius + Alignment_hole_tolerance, $fn = 100);
       // Top left
       translate([alignment_hole_distance_from_edge, case_depth - alignment_hole_distance_from_edge, case_height - Container_thickness])
-        cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - 0.05, $fn = 100);
+        cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius + Alignment_hole_tolerance, $fn = 100);
     }
   }
 
@@ -220,32 +224,32 @@ translate([-(case_width + case_width_single), -(case_depth + 10), 0])
       union() {
         // Bottom left
         translate([alignment_hole_distance_from_edge, alignment_hole_distance_from_edge, lid_thickness - 0.1])
-          cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - 0.1, $fn = 100);
+          cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - Alignment_hole_tolerance, $fn = 100);
         // Bottom right
         translate([case_width - alignment_hole_distance_from_edge, alignment_hole_distance_from_edge, lid_thickness - 0.1])
-          cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - 0.1, $fn = 100);
+          cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - Alignment_hole_tolerance, $fn = 100);
         // Top right
         translate([case_width - alignment_hole_distance_from_edge, case_depth - alignment_hole_distance_from_edge, lid_thickness - 0.1])
-          cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - 0.1, $fn = 100);
+          cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - Alignment_hole_tolerance, $fn = 100);
         // Top left
         translate([alignment_hole_distance_from_edge, case_depth - alignment_hole_distance_from_edge, lid_thickness - 0.1])
-          cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - 0.1, $fn = 100);
+          cylinder(h = Container_thickness + 0.1, r = Alignment_hole_radius - Alignment_hole_tolerance, $fn = 100);
       }
     }
 
     // Magnet holes
     // Bottom left
     translate([hole_distance_from_edge, hole_distance_from_edge, Container_thickness])
-      cylinder(h = Magnet_thickness + 0.1, r = Magnet_radius - 0.1, $fn = 100);
+      cylinder(h = Magnet_thickness + 0.1, r = Magnet_radius - Magnet_hole_tolerance, $fn = 100);
     // Bottom right
     translate([case_width - hole_distance_from_edge, hole_distance_from_edge, Container_thickness])
-      cylinder(h = Magnet_thickness + 0.1, r = Magnet_radius - 0.1, $fn = 100);
+      cylinder(h = Magnet_thickness + 0.1, r = Magnet_radius - Magnet_hole_tolerance, $fn = 100);
     // Top right
     translate([case_width - hole_distance_from_edge, case_depth - hole_distance_from_edge, Container_thickness])
-      cylinder(h = Magnet_thickness + 0.1, r = Magnet_radius - 0.1, $fn = 100);
+      cylinder(h = Magnet_thickness + 0.1, r = Magnet_radius - Magnet_hole_tolerance, $fn = 100);
     // Top left
     translate([hole_distance_from_edge, case_depth - hole_distance_from_edge, Container_thickness])
-      cylinder(h = Magnet_thickness + 0.1, r = Magnet_radius - 0.1, $fn = 100);
+      cylinder(h = Magnet_thickness + 0.1, r = Magnet_radius - Magnet_hole_tolerance, $fn = 100);
   }
 
 // translate([-(case_width + case_width_single), -(case_depth + 10), 0])
