@@ -1,7 +1,9 @@
 include <BOSL2/std.scad>
 include <BOSL2/threading.scad>
 // Container
-module create_standing_container(radius, thickness, inner_container_radius, font_size, text_step_height, container_spacing, container_thickness, container_height, container_threaded_rod_height, spacing, hexagonal_container) {
+module create_standing_container(diameter, thickness, font_size, text_step_height, container_spacing, container_thickness, container_height, container_threaded_rod_height, spacing, hexagonal_container) {
+  radius = diameter / 2;
+  inner_container_radius = radius + Thickness + Font_size + Container_spacing;
   outer_container_radius = (radius + thickness + font_size + container_spacing + container_thickness) / (Hexagonal_container ? cos(180 / 6) : 1);
   inner_pole_radius = radius - container_spacing;
   inner_container_height = (thickness + text_step_height) * container_height;

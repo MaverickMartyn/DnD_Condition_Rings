@@ -1,5 +1,6 @@
 // Rings
-module create_ring_grid(ring_texts, radius, font_family, font_style, font_size, spacing, thickness, text_step_height, letter_separation, text_ring_spacing, direction, use_backplate, backplate_thickness) {
+module create_ring_grid(ring_texts, diameter, font_family, font_style, font_size, spacing, thickness, text_step_height, letter_separation, text_ring_spacing, direction, use_backplate, backplate_thickness) {
+  radius = diameter / 2;
   columns = floor(sqrt(len(ring_texts)));
   rows = ceil(len(ring_texts) / columns);
   font_spec = str(font_family, ":style=", font_style);

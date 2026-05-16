@@ -72,17 +72,7 @@ Container_height = 25;
 Hexagonal_container = true;
 
 // ---
-// Common variables
-// ---
-radius = Diameter / 2;
-
-// ---
-// Common Container Variables
-// ---
-inner_container_radius = radius + Thickness + Font_size + Container_spacing;
-
-// ---
 // Standing Container
 // ---
 include <Parts/Standing_Container.scad>
-create_standing_container(radius = radius, thickness = Thickness, inner_container_radius = inner_container_radius, font_size = Font_size, text_step_height = Text_step_height, container_spacing = Container_spacing, container_thickness = Container_thickness, container_height = Container_height, container_threaded_rod_height = Container_threaded_rod_height, spacing = Spacing, hexagonal_container = Hexagonal_container);
+create_standing_container(diameter = Diameter, thickness = Thickness, font_size = Font_size, text_step_height = Text_step_height, container_spacing = Container_spacing, container_thickness = Container_thickness, container_height = Container_height, container_threaded_rod_height = Container_threaded_rod_height, spacing = Spacing, hexagonal_container = Hexagonal_container);

@@ -70,12 +70,7 @@ Use_backplate = false;
 Backplate_thickness = 1;
 
 // ---
-// Common variables
-// ---
-radius = Diameter / 2;
-
-// ---
 // Condition Rings
 // ---
 include <Parts/Condition_Rings.scad>
-create_ring_grid(ring_texts = Ring_texts, radius = radius, font_family = Font_family, font_style = Font_style, font_size = Font_size, spacing = Spacing, thickness = Thickness, text_step_height = Text_step_height, letter_separation = Letter_separation, text_ring_spacing = Text_ring_spacing, direction = Direction, use_backplate = Use_backplate, backplate_thickness = Backplate_thickness);
+create_ring_grid(ring_texts = Ring_texts, diameter = Diameter, font_family = Font_family, font_style = Font_style, font_size = Font_size, spacing = Spacing, thickness = Thickness, text_step_height = Text_step_height, letter_separation = Letter_separation, text_ring_spacing = Text_ring_spacing, direction = Direction, use_backplate = Use_backplate, backplate_thickness = Backplate_thickness);

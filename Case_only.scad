@@ -83,19 +83,9 @@ Alignment_hole_depth = 3;
 Alignment_hole_tolerance = 0.05;
 
 // ---
-// Common variables
-// ---
-radius = Diameter / 2;
-
-// ---
-// Common Container Variables
-// ---
-inner_container_radius = radius + Thickness + Font_size + Container_spacing;
-
-// ---
 // Case-style container (with sorted slots for each type of ring)
 // ---
 include <Parts/Case.scad>
 columns = floor(sqrt(len(Ring_texts)));
 rows = ceil(len(Ring_texts) / columns);
-create_case_container(rows = rows, columns = columns, container_thickness = Container_thickness, thickness = Thickness, text_step_height = Text_step_height, case_style_container_height = Case_style_container_height, ring_texts = Ring_texts, magnet_thickness = Magnet_thickness, magnet_radius = Magnet_radius, magnet_hole_tolerance = Magnet_hole_tolerance, alignment_hole_radius = Alignment_hole_radius, alignment_hole_tolerance = Alignment_hole_tolerance, inner_container_radius = inner_container_radius);
+create_case_container(rows = rows, columns = columns, diameter = Diameter, container_thickness = Container_thickness, thickness = Thickness, text_step_height = Text_step_height, case_style_container_height = Case_style_container_height, ring_texts = Ring_texts, magnet_thickness = Magnet_thickness, magnet_radius = Magnet_radius, magnet_hole_tolerance = Magnet_hole_tolerance, alignment_hole_radius = Alignment_hole_radius, alignment_hole_tolerance = Alignment_hole_tolerance);

@@ -33,12 +33,9 @@ Use_backplate = false;
 Backplate_thickness = 1;
 
 // ---
-// Common variables
-// ---
-radius = Diameter / 2;
-
-// ---
 // Condition Rings
 // ---
 include <Parts/Condition_Rings.scad>
-create_ring(text = Ring_text, count = Repeat_count, radius = radius, font_family = Font_family, font_style = Font_style, font_size = Font_size, spacing = Spacing, thickness = Thickness, text_step_height = Text_step_height, letter_separation = Letter_separation, text_ring_spacing = Text_ring_spacing, direction = Direction, use_backplate = Use_backplate, backplate_thickness = Backplate_thickness);
+radius = Diameter / 2;
+font_spec = str(Font_family, ":style=", Font_style);
+create_ring(text = Ring_text, count = Repeat_count, thickness = Thickness, text_step_height = Text_step_height, letter_separation= Letter_separation, text_ring_spacing = Text_ring_spacing, radius = radius, font_size = Font_size, font_spec = font_spec, direction = Direction, use_backplate = Use_backplate, backplate_thickness = Backplate_thickness);
