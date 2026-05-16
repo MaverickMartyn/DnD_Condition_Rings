@@ -251,15 +251,3 @@ translate([-(case_width + case_width_single), -(case_depth + 10), 0])
     translate([hole_distance_from_edge, case_depth - hole_distance_from_edge, Container_thickness])
       cylinder(h = Magnet_thickness + 0.1, r = Magnet_radius - Magnet_hole_tolerance, $fn = 100);
   }
-
-// translate([-(case_width + case_width_single), -(case_depth + 10), 0])
-//   union() {
-//     cube([case_width, case_depth, Container_thickness]);
-//     translate([inner_container_radius + Container_thickness, inner_container_radius + Container_thickness, 0])
-//       for (i = [0:len(Ring_texts) - 1]) {
-//         current_col = i % columns;
-//         current_row = floor(i / columns);
-//         translate([(((inner_container_radius) * 2) + Container_thickness) * current_col, (((inner_container_radius) * 2) + Container_thickness) * current_row, Container_thickness])
-//           cylinder(h = Container_thickness + 0.2, r = inner_container_radius, $fn = 100);
-//       }
-//   }
