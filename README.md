@@ -34,6 +34,7 @@ These rings are used to track various conditions affecting characters during D&D
 - Case Only - ([Case_Only.scad](Case_only.scad))
 - Condition Rings Only - ([Condition_Rings_Only.scad](Condition_Rings_Only.scad))
 - Standing Container Only - ([Standing_Container_Only.scad](Standing_Container_Only.scad))
+- Singular Condition Ring - ([Condition_Ring_Single.scad](Condition_Ring_Single.scad))
 - Parts
     - Each model has its own file, and a module which can be called from other OpenSCAD files.
 
