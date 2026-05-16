@@ -29,8 +29,13 @@ These rings are used to track various conditions affecting characters during D&D
 
 ## Files
 
-- OpenSCAD source files (.scad)
-- STL files for 3D printing
+- Main OpenSCAD source file ([DnD_Condition_Rings.scad](DnD_Condition_Rings.scad))
+    - This gets you all the models at once.
+- Case Only - ([Case_Only.scad](Case_only.scad))
+- Condition Rings Only - ([Condition_Rings_Only.scad](Condition_Rings_Only.scad))
+- Standing Container Only - ([Standing_Container_Only.scad](Standing_Container_Only.scad))
+- Parts
+    - Each model has its own file, and a module which can be called from other OpenSCAD files.
 
 ## Usage
 
