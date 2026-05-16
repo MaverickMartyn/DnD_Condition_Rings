@@ -1,3 +1,6 @@
+// ---
+// Common Parameters
+// ---
 // The text strings for each of the rings. The number in the second element of each pair indicates how many times the text should be repeated around the ring. For example, "FRIGHTENED" will be repeated once, while "0" through "9" will be repeated three times.
 Ring_texts = [
   ["BLINDED", 1],
@@ -37,37 +40,52 @@ Ring_texts = [
   ["RAGING", 1],
   ["BARDIC INSPIRATION", 1]
 ];
-// The font family to be used for the text on the rings.
-Font_family = "Liberation Sans"; //[Arial, Courier New, Times New Roman, Liberation Mono, Liberation Sans, Liberation Serif, Verdana, Sans Serif, Ubuntu]
-// The font style to be used for the text on the rings.
-Font_style = "Bold"; //[Bold Italic, Bold, Italic, Regular]
 // The internal diameter of the ring.
 Diameter = 25;
 // Font size
 Font_size = 5;
-// The angle step for arranging the text around the ring. A smaller step will result in more tightly packed text.
-Letter_separation = 17;
 // The thickness of the ring itself.
 Thickness = 2;
-// The direction of the text. A positive value will attach the letters to the ring by the bottom, while a negative value will attach it by the top.
-Direction = 1; //[-1:Top of letters,1:Bottom of letters]
-// The spacing between the text and the ring.
-Text_ring_spacing = -0.400;
+// The angle step for arranging the text around the ring. A smaller step will result in more tightly packed text.
+Letter_separation = 17;
 // Text height relative to ring height
 Text_step_height = 1;
 // The spacing used when arranging the rings in a grid.
 Spacing = 10;
 
-// The height of the threaded rod for the lid of the container.
-Container_threaded_rod_height = 10;
-// Height of the container tube (in # of rings)
-Container_height = 25;
+// ---
+// Condition Ring Parameters
+// ---
+// The font family to be used for the text on the rings.
+Font_family = "Liberation Sans"; //[Arial, Courier New, Times New Roman, Liberation Mono, Liberation Sans, Liberation Serif, Verdana, Sans Serif, Ubuntu]
+// The font style to be used for the text on the rings.
+Font_style = "Bold"; //[Bold Italic, Bold, Italic, Regular]
+// The direction of the text. A positive value will attach the letters to the ring by the bottom, while a negative value will attach it by the top.
+Direction = 1; //[-1:Top of letters,1:Bottom of letters]
+// The spacing between the text and the ring.
+Text_ring_spacing = -0.400;
+
+// ---
+// Common Container Parameters
+// ---
 // Spacing between the container and the rings (to ensure they fit inside)
 Container_spacing = 0.2; // .1
 // Thickness of the container walls
 Container_thickness = 2;
+
+// ---
+// Standing Container Parameters
+// ---
+// The height of the threaded rod for the lid of the container.
+Container_threaded_rod_height = 10;
+// Height of the container tube (in # of rings)
+Container_height = 25;
 // Whether the container should be hexagonal (true) or cylindrical (false).
 Hexagonal_container = true;
+
+// ---
+// Case-style container Parameters
+// ---
 // The height of the case-style container
 Case_style_container_height = 10;
 
@@ -85,21 +103,35 @@ Alignment_hole_depth = 3;
 // The tolerance for the alignment holes to ensure a snug fit with the alignment pins
 Alignment_hole_tolerance = 0.05;
 
+// ---
+// Common variables
+// ---
 radius = Diameter / 2;
 
+// ---
+// Condition Rings
+// ---
 include <Parts/Condition_Rings.scad>
 create_ring_grid(ring_texts = Ring_texts, radius = radius, font_family = Font_family, font_style = Font_style, spacing = Spacing, thickness = Thickness, text_step_height = Text_step_height, letter_separation = Letter_separation, text_ring_spacing = Text_ring_spacing, direction = Direction);
 
-// Standing Container
-include <Parts/Standing_Container.scad>
+// ---
+// Common Container Variables
+// ---
 inner_container_radius = radius + Thickness + Font_size + Container_spacing;
+
+// ---
+// Standing Container
+// ---
+include <Parts/Standing_Container.scad>
 translate([0, -50, 0])
   create_standing_container(radius = radius, thickness = Thickness, inner_container_radius = inner_container_radius, font_size = Font_size, text_step_height = Text_step_height, container_spacing = Container_spacing, container_thickness = Container_thickness, container_height = Container_height, container_threaded_rod_height = Container_threaded_rod_height, spacing = Spacing, hexagonal_container = Hexagonal_container);
 
+// ---
 // Case-style container (with sorted slots for each type of ring)
+// ---
 include <Parts/Case.scad>
 columns = floor(sqrt(len(Ring_texts)));
 rows = ceil(len(Ring_texts) / columns);
 translate([-50, 0, 0]) 
   rotate([0, 0, 180]) 
-  create_case_container(rows = rows, columns = columns, container_thickness = Container_thickness, thickness = Thickness, text_step_height = Text_step_height, case_style_container_height = Case_style_container_height, ring_texts = Ring_texts, magnet_thickness = Magnet_thickness, magnet_radius = Magnet_radius, magnet_hole_tolerance = Magnet_hole_tolerance, alignment_hole_radius = Alignment_hole_radius, alignment_hole_tolerance = Alignment_hole_tolerance);
+  create_case_container(rows = rows, columns = columns, container_thickness = Container_thickness, thickness = Thickness, text_step_height = Text_step_height, case_style_container_height = Case_style_container_height, ring_texts = Ring_texts, magnet_thickness = Magnet_thickness, magnet_radius = Magnet_radius, magnet_hole_tolerance = Magnet_hole_tolerance, alignment_hole_radius = Alignment_hole_radius, alignment_hole_tolerance = Alignment_hole_tolerance, inner_container_radius = inner_container_radius);
